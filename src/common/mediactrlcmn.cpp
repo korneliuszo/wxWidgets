@@ -4,7 +4,7 @@
 // Author:      Ryan Norton <wxprojects@comcast.net>
 // Modified by:
 // Created:     11/07/04
-// RCS-ID:      $Id$
+// RCS-ID:      $Id: mediactrlcmn.cpp 42816 2006-10-31 08:50:17Z RD $
 // Copyright:   (c) Ryan Norton
 // Licence:     wxWindows licence
 /////////////////////////////////////////////////////////////////////////////
@@ -98,10 +98,13 @@ bool wxMediaCtrl::Create(wxWindow* parent, wxWindowID id,
     {
         wxClassInfo* pClassInfo = wxClassInfo::FindClass(szBackend);
 
+		//if (!pClassInfo) wxMessageBox("No pClassinfo");
+
         if(!pClassInfo || !DoCreate(pClassInfo, parent, id,
                                     pos, size, style, validator, name))
         {
             m_imp = NULL;
+			
             return false;
         }
 

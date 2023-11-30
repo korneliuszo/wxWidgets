@@ -4,7 +4,7 @@
 // Author:      Vadim Zeitlin
 // Modified by:
 // Created:     11.06.98
-// RCS-ID:      $Id$
+// RCS-ID:      $Id: notebook.cpp 59897 2009-03-27 22:37:22Z VZ $
 // Copyright:   (c) 1998 Vadim Zeitlin <zeitlin@dptmaths.ens-cachan.fr>
 // Licence:     wxWindows licence
 ///////////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,11 @@
     // notebooks are never resized under CE anyhow
     #define USE_NOTEBOOK_ANTIFLICKER    0
 #else
-    #define USE_NOTEBOOK_ANTIFLICKER    1
+	#if defined(WINVER) && WINVER >= 0x0500
+		#define USE_NOTEBOOK_ANTIFLICKER    0 // was 1, hardcoded to 0, tried to use winver but doesn't seem to detect it?
+	#else
+		#define USE_NOTEBOOK_ANTIFLICKER    0
+	#endif
 #endif
 
 // ----------------------------------------------------------------------------
@@ -1452,3 +1456,55 @@ bool wxNotebook::MSWOnNotify(int idCtrl, WXLPARAM lParam, WXLPARAM* result)
 }
 
 #endif // wxUSE_NOTEBOOK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
